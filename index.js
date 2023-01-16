@@ -1,6 +1,6 @@
 import { Utils } from 'cable_ready'
 
-const { before, operate, after, processElements } = Utils
+const { before, operate, after, processElements, safeString } = Utils
 
 export default {
   invokeMethod: operation => {
@@ -9,7 +9,7 @@ export default {
       operate(operation, () => {
         let firstObjectInChain
         const { element, receiver, method, args } = operation
-        const chain = method.split('.')
+        const chain = safeString(method).split('.')
 
         switch (receiver) {
           case 'window':
