@@ -1,6 +1,6 @@
 import { Utils } from 'cable_ready'
 
-const { before, operate, after } = Utils
+const { before, operate, after, processElements } = Utils
 
 export default {
   invokeMethod: operation => {
